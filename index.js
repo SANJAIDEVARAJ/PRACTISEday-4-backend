@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-
+//Login
 app.post('/login', async (req,res) => {
     var user = req.body;
     try {
@@ -38,6 +38,9 @@ app.post('/login', async (req,res) => {
 })
 
 
+
+
+//Registeration
 app.post('/register', async (req,res)=>{
     var user = req.body;
   
@@ -58,7 +61,7 @@ app.post('/register', async (req,res)=>{
 
 
       
-
+//loads the tasks
 app.get("/tasks", async function (req, res) {
     let client = await mongodb.connect(process.env.DB);
     let db = client.db("todo");
@@ -70,6 +73,7 @@ app.get("/tasks", async function (req, res) {
 });
 
 
+//adds the tasks
 app.post('/tasks', async (req,res)=>{
   
     try {
